@@ -1,26 +1,53 @@
 // Script
+
+initial();
+
 function refreshShopperList() {
     var shopperListDiv = document.getElementById('shopper-list');
 
-    for (var dish of shooperList) {
+    for (var dish of shopperList) {
         var listItem = document.createElement('div');
         shopperListDiv.appendChild(listItem);
-        var nameSpan = document.createElement('span');
-        var amountSpan = document.createElement('span');
-        var priceSpan = document.createElement('span');
-        shopperListDiv.appendChild(nameSpan);
-        shopperListDiv.appendChild(amountSpan);
-        shopperListDiv.appendChild(priceSpan);
-        
+        var nameDiv = document.createElement('div');
+        var amountDiv = document.createElement('div');
+        var priceDiv = document.createElement('div');
+        shopperListDiv.appendChild(nameDiv);
+        shopperListDiv.appendChild(amountDiv);
+        shopperListDiv.appendChild(priceDiv);
 
-        nameSpan.innerText(dish.name);
-        amountSpan.innerText(dish.amount);
-        priceSpan.innerText(String(dish.price * dish.amount) + '원');
+        console.log('dish: ', dish);
+        console.log('dish.name: ', dish.name);
+        console.log('dish.amount: ', dish.amount);
+        console.log('dish.price: ', dish.price);
+        nameDiv.innerText = dish.name;
+        amountDiv.innerText = dish.amount;
+        priceDiv.innerText = String(dish.price * dish.amount) + '원';
     }
 }
 
 function addShopperList(dish) {
     dish.amount++;
-    addShopperList.push(dish);
+    shopperList.push(dish);
     refreshShopperList();
+}
+
+function initial() {
+    var menuList = document.getElementById("menu-list");
+
+    for (let i = 0; i < DATA.length; i++) {
+        let dish = DATA[i];
+
+        var holder = document.createElement('div');
+        var menu = document.createElement("div");
+        var price = document.createElement("div");
+
+        menuList.appendChild(holder);
+        holder.appendChild(menu);
+        holder.appendChild(price);
+
+        menu.innerText = dish.name;
+        price.innerText = dish.price;
+
+        holder.onclick = function () { addShopperList(dish) };
+    }
 }
