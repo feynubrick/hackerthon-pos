@@ -15,10 +15,6 @@ function refreshShopperList() {
         shopperListDiv.appendChild(amountDiv);
         shopperListDiv.appendChild(priceDiv);
 
-        console.log('dish: ', dish);
-        console.log('dish.name: ', dish.name);
-        console.log('dish.amount: ', dish.amount);
-        console.log('dish.price: ', dish.price);
         nameDiv.innerText = dish.name;
         amountDiv.innerText = dish.amount;
         priceDiv.innerText = String(dish.price * dish.amount) + '원';
@@ -33,7 +29,7 @@ function addShopperList(dish) {
 
 function initial() {
     var menuList = document.getElementById("menu-list");
-
+    
     for (let i = 0; i < DATA.length; i++) {
         let dish = DATA[i];
 
@@ -45,6 +41,8 @@ function initial() {
         holder.appendChild(menu);
         holder.appendChild(price);
 
+        holder.className = "menubox";
+        
         menu.innerText = dish.name;
         price.innerText = dish.price;
 
