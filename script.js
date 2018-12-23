@@ -4,7 +4,7 @@ initial();
 
 function refreshShopperList() {
   var shopperListDiv = document.getElementById("shopper-list");
-  var shopperListTotalDiv = document.getElementById("shopper-list-total");
+  //   var shopperListTotalDiv = document.getElementById("shopper-list-total");
   shopperListDiv.innerHTML =
     '<div class="OrderMenu">메뉴</div><div class="OrderNumber">수량</div><div class="OrderPrice">금액</div>';
 
@@ -30,8 +30,11 @@ function refreshShopperList() {
   var total = shopperList.reduce(function(total, item) {
     return total + item.amount * item.price;
   }, 0);
-  shopperListTotalDiv.innerHTML =
-    '<div id="shopper-list-total">합계</div> <div>' + total + " 원</div>";
+  shopperListDiv.innerHTML =
+    shopperListDiv.innerHTML +
+    '<div id="shopper-list-total"><div>합계</div><div>' +
+    total +
+    " 원</div></div>";
 }
 
 function addShopperList(dish) {
