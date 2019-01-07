@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>POS</title>
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <script src="data.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>TEST</h1>
+    <div id="view-area">
+      <div id="menu-list"></div>
 
-    <div class="menu" id="menu-list"></div>
-
-    <div id="shopper-list-box">
-        <div class="list" id="shopper-list">
-            <div class="OrderMenu">메뉴</div>
-            <div class="OrderNumber">수량</div>
-            <div class="OrderPrice">금액</div>
-            <!-- <div id="shopper-list-content"></div> -->
+      <div id="shopper-list-box">
+        <div id="shopper-list-legend">
+          <div class="shopper-list-item">메뉴</div>
+          <div class="shopper-list-item">수량</div>
+          <div class="shopper-list-item">금액</div>
         </div>
-       
+        <div id="shopper-list"></div>
+        <div id="shopper-list-total">
+          <div class="shopper-list-item">합계</div>
+          <div id="shopper-list-total-item" class="shopper-list-item">0 원</div>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
